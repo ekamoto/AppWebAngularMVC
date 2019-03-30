@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +12,8 @@ namespace AppWebAngular
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            //url: "{controller}/{action}/{id}",
+            // {*url}
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
