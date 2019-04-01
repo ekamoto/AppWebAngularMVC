@@ -9,6 +9,14 @@ namespace AppWebAngular.Controllers
 {
     public class HomeController : Controller
     {
+
+        private static List<Cliente> listaCliente = new List<Cliente>();
+
+        public HomeController()
+        {
+
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -28,25 +36,31 @@ namespace AppWebAngular.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult AddCliente(Cliente cliente) {
+
+          listaCliente.Add(cliente);
+          return Json(new { code = 200, msg = "Cliente inserido com sucesso!"}, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpDelete]
+        public JsonResult RemoveCliente(int id)
+        {
+          var cliente = listaCliente.Where(t=>t.Id==id).SingleOrDefault();
+          if (cliente != null)
+          {
+            listaCliente.Remove(cliente);
+            return Json(new { code = 200, msg = "Cliente removido com sucesso!" }, JsonRequestBehavior.AllowGet);
+          }
+
+          //not-found
+          return Json(new { code = 404, msg = "Cliente removido com sucesso!" }, JsonRequestBehavior.AllowGet);
+        }
+
+
         [HttpGet]
         public JsonResult GetClientes()
         {
-
-            List<Cliente> listaCliente = new List<Cliente>();
-            listaCliente.Add(new Cliente()
-            {
-              Nome = "Leandro Shindi Ekamoto",
-              Email = "ekamoto.leandro@gmail.com",
-              Telefone = "(67) 98109-6174"
-            });
-
-            listaCliente.Add(new Cliente()
-            {
-              Nome = "Priscila Vasconcelos Ekamoto",
-              Email = "pri.vasconcelos@hotmail.com",
-              Telefone = "(67) 98105-4502"
-            });
-
             return Json(listaCliente, JsonRequestBehavior.AllowGet);
         }
   }

@@ -15,10 +15,7 @@ export class ClienteService {
   constructor(private httpClient: HttpClient) { }
 
   getClientesRepos(){
-
-    console.log("Entrou no service");
-    //return null;
-
+    
     return this.httpClient.get('Home/GetClientes/').
             pipe(
               map((item: any) => item.map(p => <Cliente>
@@ -27,6 +24,10 @@ export class ClienteService {
                         email: p.Email,
                         telefone: p.Telefone
                     })));
- 
-    }
+  }
+  
+  addClienteRepos(cliente: Cliente): Observable<Cliente> {
+    return this.httpClient.post<Cliente>('Home/AddCliente/', cliente);
+  }
+
 }
