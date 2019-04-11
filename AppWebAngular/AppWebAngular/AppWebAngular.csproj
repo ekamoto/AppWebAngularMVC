@@ -165,12 +165,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="src\app\add-cliente\add-cliente.component.css" />
-    <Content Include="src\app\add-cliente\add-cliente.component.html" />
     <Content Include="src\app\app.component.css" />
     <Content Include="src\app\app.component.html" />
-    <Content Include="src\app\cliente-list\cliente-list.component.css" />
-    <Content Include="src\app\cliente-list\cliente-list.component.html" />
+    <Content Include="src\app\modules\cliente\adicionar\add-cliente.component.css" />
+    <Content Include="src\app\modules\cliente\adicionar\add-cliente.component.html" />
+    <Content Include="src\app\modules\cliente\listar\cliente-list.component.css" />
+    <Content Include="src\app\modules\cliente\listar\cliente-list.component.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
     <Content Include="src\karma.conf.js" />
@@ -199,6 +199,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="src\app\core\" />
+    <Folder Include="src\app\shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -216,18 +218,18 @@
   <ItemGroup>
     <TypeScriptCompile Include="e2e\src\app.e2e-spec.ts" />
     <TypeScriptCompile Include="e2e\src\app.po.ts" />
-    <TypeScriptCompile Include="src\app\add-cliente\add-cliente.component.spec.ts" />
-    <TypeScriptCompile Include="src\app\add-cliente\add-cliente.component.ts" />
     <TypeScriptCompile Include="src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
-    <TypeScriptCompile Include="src\app\cliente-list\cliente-list.component.spec.ts" />
-    <TypeScriptCompile Include="src\app\cliente-list\cliente-list.component.ts" />
-    <TypeScriptCompile Include="src\app\cliente.service.spec.ts" />
-    <TypeScriptCompile Include="src\app\cliente.service.ts" />
-    <TypeScriptCompile Include="src\app\cliente.spec.ts" />
-    <TypeScriptCompile Include="src\app\cliente.ts" />
+    <TypeScriptCompile Include="src\app\modules\cliente\cliente.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\cliente\cliente.service.ts" />
+    <TypeScriptCompile Include="src\app\modules\cliente\cliente.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\cliente\cliente.ts" />
+    <TypeScriptCompile Include="src\app\modules\cliente\adicionar\add-cliente.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\cliente\adicionar\add-cliente.component.ts" />
+    <TypeScriptCompile Include="src\app\modules\cliente\listar\cliente-list.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\modules\cliente\listar\cliente-list.component.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />

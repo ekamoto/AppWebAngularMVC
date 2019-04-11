@@ -23,5 +23,4 @@ export class ClienteListComponent implements OnInit {
       this.listClientes = data;
     });
   }
-
 }

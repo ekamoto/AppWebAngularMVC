@@ -29,5 +29,4 @@ export class ClienteService {
   addClienteRepos(cliente: Cliente): Observable<Cliente> {
     return this.httpClient.post<Cliente>('Home/AddCliente/', cliente);
   }
-
 }
