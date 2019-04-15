@@ -15,15 +15,23 @@ export class ClienteService {
   constructor(private httpClient: HttpClient) { }
 
   getClientesRepos(){
-    
+
+    //Jeito 1
+    //return this.httpClient.get('Home/GetClientes/').
+    //  pipe(
+    //    map((item: any[]) => item.map(p => <Cliente>
+    //                {
+    //                    Nome: p.Nome,
+    //                    Email: p.Email,
+    //                    Telefone: p.Telefone
+    //    })));
+
+    // Jeito 2
     return this.httpClient.get('Home/GetClientes/').
-            pipe(
-              map((item: any) => item.map(p => <Cliente>
-                    {
-                        nome: p.Nome,
-                        email: p.Email,
-                        telefone: p.Telefone
-                    })));
+      pipe(map((item: Cliente[]) => item));
+
+    // Jeito 3
+    //return this.httpClient.get('Home/GetClientes/');
   }
   
   addClienteRepos(cliente: Cliente): Observable<Cliente> {

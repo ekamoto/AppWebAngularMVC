@@ -19,9 +19,9 @@ export class AddClienteComponent implements OnInit {
   public addClienteRepos(clienteForm: NgForm) {
     
     var cliente = new Cliente();
-    cliente.nome = clienteForm.value.nome;
-    cliente.email = clienteForm.value.email;
-    cliente.telefone = clienteForm.value.telefone;
+    cliente.Nome = clienteForm.value.Nome;
+    cliente.Email = clienteForm.value.Email;
+    cliente.Telefone = clienteForm.value.Telefone;
 
     this.clienteServ.addClienteRepos(cliente).subscribe((data) => {
       
