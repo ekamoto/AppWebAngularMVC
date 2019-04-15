@@ -40,7 +40,7 @@ namespace AppWebAngular.Controllers
         public JsonResult AddCliente(Cliente cliente) {
 
           listaCliente.Add(cliente);
-          return Json(new { code = 200, msg = "Cliente inserido com sucesso!"}, JsonRequestBehavior.AllowGet);
+          return Json(new { Codigo = 200, Mensagem = "Cliente "+ cliente .Nome + " inserido com sucesso!"}, JsonRequestBehavior.AllowGet);
         }
 
         [HttpDelete]

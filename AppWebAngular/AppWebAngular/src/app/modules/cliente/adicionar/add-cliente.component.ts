@@ -10,6 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AddClienteComponent implements OnInit {
 
+  public msg;
   constructor(private clienteServ: ClienteService) { }
 
   ngOnInit() {
@@ -24,8 +25,8 @@ export class AddClienteComponent implements OnInit {
     cliente.Telefone = clienteForm.value.Telefone;
 
     this.clienteServ.addClienteRepos(cliente).subscribe((data) => {
-      
-      console.log(data);
+      this.msg = data.Mensagem;
+      //console.log(data');
     });
   }
 

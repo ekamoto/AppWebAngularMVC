@@ -200,7 +200,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="src\app\core\" />
-    <Folder Include="src\app\shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -222,6 +221,7 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\class\retorno.ts" />
     <TypeScriptCompile Include="src\app\modules\cliente\cliente.service.spec.ts" />
     <TypeScriptCompile Include="src\app\modules\cliente\cliente.service.ts" />
     <TypeScriptCompile Include="src\app\modules\cliente\cliente.spec.ts" />

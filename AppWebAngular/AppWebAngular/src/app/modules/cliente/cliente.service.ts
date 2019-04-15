@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from './cliente';
+import { Retorno } from '../../shared/class/retorno';
 import { Observable } from 'rxjs';
 
 import { map } from "rxjs/operators";
@@ -11,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ClienteService {
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -33,8 +35,8 @@ export class ClienteService {
     // Jeito 3
     //return this.httpClient.get('Home/GetClientes/');
   }
-  
-  addClienteRepos(cliente: Cliente): Observable<Cliente> {
-    return this.httpClient.post<Cliente>('Home/AddCliente/', cliente);
+
+  addClienteRepos(cliente: Cliente): Observable<Retorno> {
+    return this.httpClient.post<Retorno>('Home/AddCliente/', cliente);
   }
 }
