@@ -28,10 +28,23 @@ export class ClienteListComponent implements OnInit {
       this.listClientes = data;
     });
 
+    //this.clienteServ.getClientesPorEmailEConcatenarTelefoneComNome().subscribe((data) => {
+
+    //  this.listClientes = data;
+    //});
+    
     // Jeito 1, 2
     //this.clienteServ.getClientesRepos().subscribe((data: Cliente[]) => {
 
     //  this.listClientes = data;
     //});
+  }
+
+  public modelChanged(email) {
+
+    this.clienteServ.getClientesPorEmailEConcatenarTelefoneComNome(email).subscribe((data) => {
+
+      this.listClientes = data;
+    });
   }
 }

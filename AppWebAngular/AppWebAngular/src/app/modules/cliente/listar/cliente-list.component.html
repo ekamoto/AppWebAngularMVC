@@ -1,4 +1,9 @@
 <h1>Listagem de Clientes</h1>
+
+<p>
+  <strong>E-mail: </strong><input type="text" [(ngModel)]="cliente" (ngModelChange)="modelChanged(cliente)" />
+</p>
+
 <table class="table table-hover">
   <thead>
     <tr>
