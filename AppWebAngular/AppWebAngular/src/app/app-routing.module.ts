@@ -5,11 +5,11 @@ import { AddClienteComponent } from './modules/cliente/adicionar/add-cliente.com
 
 const routes: Routes = [
   {
-    path: "clientes",
+    path: "cliente/listar",
     component: ClienteListComponent
   },
   {
-    path: "add-cliente",
+    path: "cliente/adicionar",
     component: AddClienteComponent
   }
 ];
