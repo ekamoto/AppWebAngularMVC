@@ -75,7 +75,7 @@ namespace AppWebAngular.Controllers
           if (cliente!=null)
             mensagem = "Cliente " + cliente.Nome + " deletado com sucesso!";
           else
-            mensagem = "Falhao ao remover Cliente ";
+            mensagem = "Falha ao remover Cliente ";
 
           listaCliente.Remove(cliente);
           return Json(new { Codigo = 200, Mensagem = mensagem });
