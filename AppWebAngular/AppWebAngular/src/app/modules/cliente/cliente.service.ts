@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from './cliente';
 import { Retorno } from '../../shared/class/retorno';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
-import { map, filter } from "rxjs/operators";
+import { map, filter, tap, catchError } from "rxjs/operators";
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ClienteService {
+
+
 
 
   constructor(private httpClient: HttpClient) { }
@@ -51,6 +57,7 @@ export class ClienteService {
       map((cliente: Cliente[]) =>
       cliente.map((cli: Cliente) => <Cliente>
           {
+            Id: cli.Id,
             Nome: cli.Nome + "("+cli.Telefone+")",
             Email: cli.Email,
             Telefone: cli.Telefone
@@ -59,5 +66,27 @@ export class ClienteService {
 
   addClienteRepos(cliente: Cliente): Observable<Retorno> {
     return this.httpClient.post<Retorno>('Home/AddCliente/', cliente);
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  removerClienteRepos(idCliente: number): Observable<Retorno> {
+
+    return this.httpClient.delete<Retorno>('Home/RemoverCliente/' + idCliente);
+
+    //return this.httpClient.delete<Retorno>("Home/RemoverCliente/"+idCliente , httpOptions).pipe(
+    //  tap(_ => console.log(`deleted product id=${idCliente}`)),
+    //  catchError(this.handleError<Retorno>('deleteProduct'))
+    //);
+    
   }
 }

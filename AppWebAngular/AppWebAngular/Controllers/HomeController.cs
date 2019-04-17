@@ -39,29 +39,46 @@ namespace AppWebAngular.Controllers
         [HttpPost]
         public JsonResult AddCliente(Cliente cliente) {
 
+          cliente.Id = listaCliente.Count + 1;
           listaCliente.Add(cliente);
           return Json(new { Codigo = 200, Mensagem = "Cliente "+ cliente .Nome + " inserido com sucesso!"}, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpDelete]
-        public JsonResult RemoveCliente(int id)
-        {
-          var cliente = listaCliente.Where(t=>t.Id==id).SingleOrDefault();
-          if (cliente != null)
-          {
-            listaCliente.Remove(cliente);
-            return Json(new { code = 200, msg = "Cliente removido com sucesso!" }, JsonRequestBehavior.AllowGet);
-          }
+        //[HttpDelete]
+        //public JsonResult RemoveCliente(int id)
+        //{
+        //  var cliente = listaCliente.Where(t=>t.Id==id).SingleOrDefault();
+        //  if (cliente != null)
+        //  {
+        //    listaCliente.Remove(cliente);
+        //    return Json(new { code = 200, msg = "Cliente removido com sucesso!" }, JsonRequestBehavior.AllowGet);
+        //  }
 
-          //not-found
-          return Json(new { code = 404, msg = "Cliente removido com sucesso!" }, JsonRequestBehavior.AllowGet);
-        }
+        //  //not-found
+        //  return Json(new { code = 404, msg = "Cliente removido com sucesso!" }, JsonRequestBehavior.AllowGet);
+        //}
 
 
         [HttpGet]
         public JsonResult GetClientes()
         {
             return Json(listaCliente, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpDelete]
+        public JsonResult RemoverCliente(int id)
+        {
+          Cliente cliente = listaCliente.Where(t => t.Id == id).SingleOrDefault();
+
+          string mensagem = string.Empty;
+
+          if (cliente!=null)
+            mensagem = "Cliente " + cliente.Nome + " deletado com sucesso!";
+          else
+            mensagem = "Falhao ao remover Cliente ";
+
+          listaCliente.Remove(cliente);
+          return Json(new { Codigo = 200, Mensagem = mensagem });
         }
   }
 }

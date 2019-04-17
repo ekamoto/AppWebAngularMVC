@@ -10,6 +10,7 @@ import { Cliente } from '../cliente';
 export class ClienteListComponent implements OnInit {
 
   public listClientes;
+  public msg;
 
   constructor(private clienteServ: ClienteService) { }
 
@@ -45,6 +46,19 @@ export class ClienteListComponent implements OnInit {
     this.clienteServ.getClientesPorEmailEConcatenarTelefoneComNome(email).subscribe((data) => {
 
       this.listClientes = data;
+    });
+  }
+
+  public removerCliente(idCliente) {
+
+    this.clienteServ.removerClienteRepos(idCliente).subscribe((data) => {
+      
+      this.msg = data.Mensagem;
+
+      if (data.Codigo == 200)
+      {
+        this.loadClienteRepos();
+      }
     });
   }
 }
