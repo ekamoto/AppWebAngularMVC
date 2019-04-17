@@ -17,9 +17,6 @@ const httpOptions = {
 
 export class ClienteService {
 
-
-
-
   constructor(private httpClient: HttpClient) { }
 
   getClientesRepos(){
@@ -65,28 +62,12 @@ export class ClienteService {
   }
 
   addClienteRepos(cliente: Cliente): Observable<Retorno> {
+
     return this.httpClient.post<Retorno>('Home/AddCliente/', cliente);
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 
   removerClienteRepos(idCliente: number): Observable<Retorno> {
 
     return this.httpClient.delete<Retorno>('Home/RemoverCliente/' + idCliente);
-
-    //return this.httpClient.delete<Retorno>("Home/RemoverCliente/"+idCliente , httpOptions).pipe(
-    //  tap(_ => console.log(`deleted product id=${idCliente}`)),
-    //  catchError(this.handleError<Retorno>('deleteProduct'))
-    //);
-    
   }
 }

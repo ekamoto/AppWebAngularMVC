@@ -44,21 +44,6 @@ namespace AppWebAngular.Controllers
           return Json(new { Codigo = 200, Mensagem = "Cliente "+ cliente .Nome + " inserido com sucesso!"}, JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpDelete]
-        //public JsonResult RemoveCliente(int id)
-        //{
-        //  var cliente = listaCliente.Where(t=>t.Id==id).SingleOrDefault();
-        //  if (cliente != null)
-        //  {
-        //    listaCliente.Remove(cliente);
-        //    return Json(new { code = 200, msg = "Cliente removido com sucesso!" }, JsonRequestBehavior.AllowGet);
-        //  }
-
-        //  //not-found
-        //  return Json(new { code = 404, msg = "Cliente removido com sucesso!" }, JsonRequestBehavior.AllowGet);
-        //}
-
-
         [HttpGet]
         public JsonResult GetClientes()
         {
