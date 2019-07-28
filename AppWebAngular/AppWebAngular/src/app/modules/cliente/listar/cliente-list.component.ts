@@ -11,6 +11,7 @@ export class ClienteListComponent implements OnInit {
 
   public listClientes;
   public msg;
+  public email;
 
   constructor(private clienteServ: ClienteService) { }
 
