@@ -1,2 +1,2 @@
-# AppWebAngular
+# AppWebAngular MVC
 Estudo angular
